@@ -1,0 +1,26 @@
+1.二分的前提是要排序
+2.mid 在while的循环里面更新
+double search(double a,double b,double c,double d,double l,double r){
+    while(r - l >1e-8)
+    {
+        double mid=(l+r)/2;
+        //如果mid=0，直接输出；否则进行二分查找
+        if(f(a,b,c,d,mid)==0)   return mid;
+        if(f(a,b,c,d,mid)*f(a,b,c,d,l)-0.0<0)//=0避免死循环
+            r=mid;
+        else//>0
+            l=mid;
+    }
+    return l;
+}
+double search(double a,double b,double c,double d,double l,double r){
+        if(r-l<1e8) 
+            return r;
+        double mid=(l+r)/2;
+        //如果mid=0，直接输出；否则进行二分查找
+        if(f(a,b,c,d,mid)==0)   return mid;
+        if(f(a,b,c,d,mid)*f(a,b,c,d,l)<0)//=0避免死循环
+            r=mid;
+        else//>0
+            l=mid;
+}
